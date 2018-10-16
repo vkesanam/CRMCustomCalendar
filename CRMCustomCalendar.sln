@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CRMCustomCalendar", "CRMCustomCalendar\CRMCustomCalendar.csproj", "{E1A3DCD7-ADB1-4A64-90D1-9746886B1DD1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtendedCalendar", "ExtendedCalendar\ExtendedCalendar.csproj", "{545015A8-B891-47F2-B816-ED62B4035768}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E1A3DCD7-ADB1-4A64-90D1-9746886B1DD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1A3DCD7-ADB1-4A64-90D1-9746886B1DD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1A3DCD7-ADB1-4A64-90D1-9746886B1DD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1A3DCD7-ADB1-4A64-90D1-9746886B1DD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{545015A8-B891-47F2-B816-ED62B4035768}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{545015A8-B891-47F2-B816-ED62B4035768}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{545015A8-B891-47F2-B816-ED62B4035768}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{545015A8-B891-47F2-B816-ED62B4035768}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
