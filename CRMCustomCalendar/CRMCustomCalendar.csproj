@@ -115,7 +115,14 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="calender.png" />
     <Content Include="CustomEntityCalendar.aspx" />
+    <Content Include="Scripts\calendar-en.min.js" />
+    <None Include="Scripts\jquery-1.4.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.4.1.js" />
+    <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="Scripts\jquery.dynDateTime.min.js" />
+    <Content Include="Styles\calendar-blue.css" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -147,6 +154,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Libraries\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\PublishProfiles\CRMCalendar - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\CRMCalendar - Web Deploy.pubxml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

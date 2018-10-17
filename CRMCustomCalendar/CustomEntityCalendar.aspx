@@ -15,6 +15,38 @@
         font-weight:bold;
     }
     </style>
+    <script src="Scripts/jquery-1.4.1.min.js" type="text/javascript"></script>
+<script src="Scripts/jquery.dynDateTime.min.js" type="text/javascript"></script>
+<script src="Scripts/calendar-en.min.js" type="text/javascript"></script>
+<link href="Styles/calendar-blue.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#<%=TextBox1.ClientID %>").dynDateTime({
+            showsTime: true,
+            ifFormat: "%Y/%m/%d %H:%M",
+            daFormat: "%l;%M %p, %e %m,  %Y",
+            align: "BR",
+            electric: false,
+            singleClick: false,
+            displayArea: ".siblings('.dtcDisplayArea')",
+            button: ".next()"
+        });
+    });
+</script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+        $("#<%=TextBox2.ClientID %>").dynDateTime({
+            showsTime: true,
+            ifFormat: "%Y/%m/%d %H:%M",
+            daFormat: "%l;%M %p, %e %m,  %Y",
+            align: "BR",
+            electric: false,
+            singleClick: false,
+            displayArea: ".siblings('.dtcDisplayArea')",
+            button: ".next()"
+        });
+    });
+</script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -40,7 +72,21 @@
         <TodayDayStyle BackColor="#FFDC6D" ForeColor="White" />
         <WeekendDayStyle BackColor="AliceBlue" />
     </EXXRM:ExtCalendar>
-    </div>
+        <asp:HiddenField ID="HiddenField1" runat="server" />
+         <asp:HiddenField ID="HiddenField2" runat="server" />
+        </br>
+        <asp:Label ID="Label1" runat="server" Text="Start Date & Time"></asp:Label>
+        <asp:TextBox ID="TextBox1" runat="server" ReadOnly = "true"></asp:TextBox><img src="calender.png" />
+<asp:RequiredFieldValidator runat="server" id="reqName" controltovalidate="TextBox1" errormessage="Please select the date!" />
+        
+
+        </br>
+                <asp:Label ID="Label2" runat="server" Text="End Date & Time"></asp:Label>
+          <asp:TextBox ID="TextBox2" runat="server" ReadOnly = "true"></asp:TextBox><img src="calender.png" />
+        <asp:RequiredFieldValidator runat="server" id="RequiredFieldValidator1" controltovalidate="TextBox2" errormessage="Please select the date!" />
+
+        </br>
+<asp:Button ID="btnSave" runat="server" Text="Save" onclick="btnSave_Click" /></div>
     </form>
 </body>
 </html>

@@ -134,7 +134,8 @@ namespace ExtendedCalendar
                     System.Web.UI.WebControls.Label lbl = new System.Web.UI.WebControls.Label();
                   
                     // Show the Event Text
-                    lbl.Text = "<BR />" + dr[EventHeaderColumnName].ToString() + dr[EventStartDateColumnName].ToString(); 
+                    //lbl.Text = "<BR />" + dr[EventHeaderColumnName].ToString() + dr[EventStartDateColumnName].ToString();
+                    lbl.Text = "<BR />" + dr[EventStartDateColumnName].ToString();
 
                     // Set the Tool Tip
                     if (this.ShowDescriptionAsToolTip && this.EventDescriptionColumnName != string.Empty)
