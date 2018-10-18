@@ -142,6 +142,7 @@
       <DependentUpon>CustomEntityCalendar.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Xrm.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ExtendedCalendar\ExtendedCalendar.csproj">

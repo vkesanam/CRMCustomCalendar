@@ -40,22 +40,31 @@ namespace CRMCustomCalendar {
         protected global::ExtendedCalendar.ExtCalendar CCGlobalCalendar;
         
         /// <summary>
-        /// HiddenField1 control.
+        /// hdnLeadNo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField HiddenField1;
+        protected global::System.Web.UI.WebControls.HiddenField hdnLeadNo;
         
         /// <summary>
-        /// HiddenField2 control.
+        /// hdnFullName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField HiddenField2;
+        protected global::System.Web.UI.WebControls.HiddenField hdnFullName;
+        
+        /// <summary>
+        /// hdnLeadGuid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdnLeadGuid;
         
         /// <summary>
         /// Label1 control.

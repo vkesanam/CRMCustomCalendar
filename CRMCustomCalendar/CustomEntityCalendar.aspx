@@ -72,8 +72,9 @@
         <TodayDayStyle BackColor="#FFDC6D" ForeColor="White" />
         <WeekendDayStyle BackColor="AliceBlue" />
     </EXXRM:ExtCalendar>
-        <asp:HiddenField ID="HiddenField1" runat="server" />
-         <asp:HiddenField ID="HiddenField2" runat="server" />
+        <asp:HiddenField ID="hdnLeadNo" runat="server" />
+         <asp:HiddenField ID="hdnFullName" runat="server" />
+         <asp:HiddenField ID="hdnLeadGuid" runat="server" />
         </br>
         <asp:Label ID="Label1" runat="server" Text="Start Date & Time"></asp:Label>
         <asp:TextBox ID="TextBox1" runat="server" ReadOnly = "true"></asp:TextBox><img src="calender.png" />

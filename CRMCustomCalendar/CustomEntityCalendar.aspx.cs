@@ -11,14 +11,14 @@ using System.Net;
 using System.Configuration;
 using System.ServiceModel.Description;
 using System.Data;
+using Microsoft.Crm.Sdk.Messages;
+using Xrm;
 
 namespace CRMCustomCalendar
 {
     public partial class CustomEntityCalendar : System.Web.UI.Page
     {
-        public string fullname;
-        public Guid leadGuid;
-        public string leadno;
+       
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -91,11 +91,12 @@ namespace CRMCustomCalendar
             {
                 foreach (Entity c in ec.Entities)
                 {
-                    leadGuid = new Guid(c["leadid"].ToString());
+                    Guid leadGuid = new Guid(c["leadid"].ToString());
                     string subject = c["subject"].ToString();
                     Guid createdBy = ((EntityReference)c["createdby"]).Id;
-                    HiddenField2.Value = c["fullname"].ToString();
-                    HiddenField1.Value = c["gt_uniqueleadid"].ToString();
+                    hdnFullName.Value = c["fullname"].ToString();
+                    hdnLeadNo.Value = c["gt_uniqueleadid"].ToString();
+                    hdnLeadGuid.Value = c["leadid"].ToString();
 
                     QueryExpression q2 = new QueryExpression();
                     q2.EntityName = "appointment";
@@ -126,8 +127,17 @@ namespace CRMCustomCalendar
                             DataRow dr;
                             dr = dt.NewRow();
                             dr["Id"] = idCount++;
-                            dr["EventStartDate"] = Convert.ToDateTime(leave.Attributes["scheduledstart"].ToString());
-                            dr["EventEndDate"] = Convert.ToDateTime(leave.Attributes["scheduledend"].ToString());
+                            // This converts the UTC time to your local time
+                            //var localDate = RetrieveLocalTimeFromUTCTime(Convert.ToDateTime(leave.Attributes["scheduledstart"].ToString()), GetService());
+
+                            // It will give you the correct date
+                            // var date = dateAndTime.ToString("dd-MM-yyyy");
+                           
+
+                           
+
+                            dr["EventStartDate"] = CRMTime(leave.Attributes["scheduledstart"].ToString());
+                            dr["EventEndDate"] = CRMTime(leave.Attributes["scheduledend"].ToString());
                             dr["EventHeader"] = leave.Attributes["subject"].ToString();
                             dr["EventDescription"] = leave.Attributes["subject"].ToString();
                             dr["EventForeColor"] = "Navy";
@@ -146,6 +156,14 @@ namespace CRMCustomCalendar
             }
         }
 
+        public DateTime CRMTime(string dateTime)
+        {
+            DateTime convertedDatee = DateTime.SpecifyKind(DateTime.Parse(dateTime), DateTimeKind.Utc);
+
+            var kind = convertedDatee.Kind;
+            DateTime dtt = convertedDatee.ToLocalTime();
+            return dtt;
+        }
         public IOrganizationService GetService()
         {
             try
@@ -186,6 +204,7 @@ namespace CRMCustomCalendar
             }
         }
 
+      
         //public String serverURL
         //{
         //    get { return ConfigurationManager.AppSettings["OrganizationURL"]; }
@@ -197,12 +216,13 @@ namespace CRMCustomCalendar
             DateTime endTime=DateTime.Parse(Request.Form[TextBox2.UniqueID]);
 
             Entity Appointment = new Entity("appointment");
-            Appointment["subject"] = "Appointment with " + HiddenField2.Value;
+            Appointment["subject"] = "Appointment with " + hdnFullName.Value;
             Appointment["scheduledstart"] = dob;
             Appointment["scheduledend"] = endTime;
+            Appointment["regardingobjectid"] = new EntityReference("lead", new Guid(hdnLeadGuid.Value));
             Guid AppointmentId = GetService().Create(Appointment);
 
-            CalendarMethod(HiddenField1.Value);
+            CalendarMethod(hdnLeadNo.Value);
         }
     }
 }
