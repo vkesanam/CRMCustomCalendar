@@ -187,7 +187,7 @@ namespace CRMCustomCalendar
 
                 ClientCredentials credentials = new ClientCredentials();
                 credentials.UserName.UserName = "admin@gtuaed365.onmicrosoft.com";
-                credentials.UserName.Password = "gtuae$2018";
+                credentials.UserName.Password = "gtuae$2019";
                 Uri OrganizationUri = new Uri("https://gtuat.api.crm4.dynamics.com/XRMServices/2011/Organization.svc");
                 Uri HomeRealUri = null;
                 IOrganizationService service = null;
